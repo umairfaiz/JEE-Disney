@@ -433,7 +433,7 @@
                     <div class="aa-promo-banner">                      
                       <img src="img/promo-banner-2.jpg" alt="img">                      
                       <div class="aa-prom-content">
-                        <h4><a href="#">E-LOCKER</a></h4>                        
+                        <h4><a href="elocker.jsp">E-LOCKER</a></h4>                        
                       </div>
                     </div>
                   </div>

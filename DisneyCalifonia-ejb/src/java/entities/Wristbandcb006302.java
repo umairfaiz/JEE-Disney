@@ -35,6 +35,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Wristbandcb006302.findByExpence", query = "SELECT w FROM Wristbandcb006302 w WHERE w.expence = :expence")})
 public class Wristbandcb006302 implements Serializable {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "wristId")
+    private Collection<Elockercb006302> elockercb006302Collection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -112,6 +115,15 @@ public class Wristbandcb006302 implements Serializable {
     @Override
     public String toString() {
         return "entities.Wristbandcb006302[ wristId=" + wristId + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Elockercb006302> getElockercb006302Collection() {
+        return elockercb006302Collection;
+    }
+
+    public void setElockercb006302Collection(Collection<Elockercb006302> elockercb006302Collection) {
+        this.elockercb006302Collection = elockercb006302Collection;
     }
     
 }

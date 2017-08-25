@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/entities/Ticketcb006302.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/Ticketcb006302Facade.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/entities/Userdetails.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/entities/Wristbandcb006302.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/Wristbandcb006302Facade.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/Wristbandcb006302FacadeLocal.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/Elockercb006302Facade.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/UserdetailsFacade.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/Ticketcb006302FacadeLocal.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/DisneyCalifonia/DisneyCalifonia-ejb/src/java/model/Elockercb006302FacadeLocal.java</file>
         </group>
     </open-files>
 </project-private>

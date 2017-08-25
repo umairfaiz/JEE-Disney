@@ -20,6 +20,10 @@
         <servlet-name>e_loadServlet</servlet-name>
         <servlet-class>com.src.servlets.e_loadServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>lockerServlet</servlet-name>
+        <servlet-class>com.src.servlets.lockerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>accountServlet</servlet-name>
         <url-pattern>/accountServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>e_loadServlet</servlet-name>
         <url-pattern>/e_loadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>lockerServlet</servlet-name>
+        <url-pattern>/lockerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

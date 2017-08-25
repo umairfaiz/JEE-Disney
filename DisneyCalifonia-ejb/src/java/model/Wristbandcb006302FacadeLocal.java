@@ -32,4 +32,5 @@ public interface Wristbandcb006302FacadeLocal {
     
     public void updateCredit(String wristid, int amount);
     
+   public int updateExpense(String wristid, int expense);
 }

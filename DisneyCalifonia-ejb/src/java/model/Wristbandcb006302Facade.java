@@ -6,10 +6,12 @@
 package model;
 
 import entities.Wristbandcb006302;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -37,5 +39,19 @@ public class Wristbandcb006302Facade extends AbstractFacade<Wristbandcb006302> i
        //int updateCredit = query.executeUpdate();
        query.executeUpdate();
     }
+
+    @Override
+    public int updateExpense(String wristid, int expense) {
+        Wristbandcb006302 exp = em.find(Wristbandcb006302.class, wristid);
+//        TypedQuery<Wristbandcb006302> query = em.createNamedQuery("Wristbandcb006302.findByWristId", Wristbandcb006302.class);
+        int old_expense = exp.getExpence();
+//        List<Wristbandcb006302> results = query.getResultList();
+//        int old_expense = 
+        int new_expense=old_expense+expense;
+        
+        return new_expense;
+    }
+    
+    
     
 }
