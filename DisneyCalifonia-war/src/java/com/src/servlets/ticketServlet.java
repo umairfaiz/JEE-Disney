@@ -19,12 +19,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Ticketcb006302FacadeLocal;
+import model.Wristbandcb006302FacadeLocal;
 
 /**
  *
  * @author Umair
  */
 public class ticketServlet extends HttpServlet {
+
+    @EJB
+    private Wristbandcb006302FacadeLocal wristbandcb006302Facade;
 
     @EJB
     private Ticketcb006302FacadeLocal ticketcb006302Facade;
@@ -35,7 +39,27 @@ public class ticketServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String wristid = request.getParameter("wristID");
+        String ticketid=String.valueOf(randomID());
+        String gameType=request.getParameter("gameType"); //ticket_Type
+        String ticketQty=request.getParameter("quantity"); //ticket_Type2
+        int ticketPrice=Integer.parseInt(request.getParameter("gamePrice"));
+        String ticket_date = dtf.format(localDate);
+        int expense = Integer.parseInt(ticketQty)*  ticketPrice;
         
+        RequestDispatcher rd;
+        wristbandcb006302Facade.updateExpense(wristid, expense);
+        try{
+            ticketcb006302Facade.addExtremeparkTicket(ticketid,wristid,gameType,ticketQty,ticket_date, ticketPrice);
+            rd = request.getRequestDispatcher("extremepark_tickets.jsp");
+            rd.forward(request, response);
+            out.println("Transaction ticket was successful!");
+        }
+        catch(Exception ex){
+            rd = request.getRequestDispatcher("ticket.jsp");
+            rd.forward(request, response);
+            out.println(ex + "Try again");
+        }
     }
 
    

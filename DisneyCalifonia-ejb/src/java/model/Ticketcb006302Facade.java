@@ -64,6 +64,24 @@ public class Ticketcb006302Facade extends AbstractFacade<Ticketcb006302> impleme
 //        em.persist(wristband);
 //        
 //    }
+
+    @Override
+    public void addExtremeparkTicket(String ticketid, String wristID, String type1, String type2, String ticket_date, int ticket_price) {
+        Ticketcb006302 ticket = new Ticketcb006302();
+        Wristbandcb006302 wristband = new Wristbandcb006302();
+        
+        
+        
+        ticket.setTicketId(ticketid);
+        //ticket.setWristId(new Wristbandcb006302(wristID));
+        ticket.setWristId(new Wristbandcb006302(wristband.getWristId()));
+        ticket.setTicketType(type1);
+        ticket.setTicketType2(type2);
+        ticket.setTicketDate(ticket_date);
+        ticket.setTicketPrice(ticket_price);
+        //em.getTransaction().begin();
+        em.persist(ticket);
+    }
     
     
     

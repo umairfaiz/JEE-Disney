@@ -24,6 +24,7 @@ import model.Wristbandcb006302FacadeLocal;
  */
 public class lockerServlet extends HttpServlet {
 
+   
     @EJB
     private Wristbandcb006302FacadeLocal wristbandcb006302Facade;
 
@@ -33,7 +34,24 @@ public class lockerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
+       String wrist_id= request.getParameter("wrsitid");
+       String elocker_id= request.getParameter("elockerid");
+       int reuse_charges=reuseLocker();
+       
+       RequestDispatcher rd;
+       
+       wristbandcb006302Facade.updateExpense(wrist_id, reuse_charges);
+
+        if(elockercb006302Facade.isLockerExist(wrist_id, elocker_id)){
+             rd = request.getRequestDispatcher("elocker.jsp");
+             rd.forward(request, response);
+             out.println("Locker not available at the moment. Try getting a new locker");
+        }
+        else{
+             rd = request.getRequestDispatcher("index.jsp");
+             rd.forward(request, response);
+             out.println("Your Locker was Reserved successfuly");
+        }
     }
     
     @Override
@@ -69,6 +87,10 @@ public class lockerServlet extends HttpServlet {
             charges=10;
         }
         return charges;
+    }
+    
+    public int reuseLocker(){
+        return 5;
     }
     
     public int randomID(){

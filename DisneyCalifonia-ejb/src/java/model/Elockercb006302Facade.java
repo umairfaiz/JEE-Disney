@@ -10,6 +10,7 @@ import entities.Wristbandcb006302;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -41,6 +42,19 @@ public class Elockercb006302Facade extends AbstractFacade<Elockercb006302> imple
         locker.setElockerPrice(lockerPrice);
         
         em.persist(locker);
+    }
+
+    @Override
+    public boolean isLockerExist(String wristid, String lockerid) {
+        Query query = em.createQuery("SELECT e FROM Elockercb006302 e WHERE e.elockerId = :elockerId").setParameter("elockerId", lockerid);
+        boolean flag=true;
+        if(query.getResultList()!=null){
+            return flag=true;
+        }
+       else{
+            return flag=false;
+        }
+            
     }
     
 }

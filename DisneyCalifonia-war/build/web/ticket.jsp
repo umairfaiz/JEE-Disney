@@ -377,7 +377,7 @@
                     </div>
                     <div class="aa-prod-view-bottom">
                         <button class="aa-add-to-cart-btn" href>Purchase Ticket(s)</button>
-                      <a class="aa-add-to-cart-btn" href="#">Purchase Extreme Park Ticket(s)</a>
+                      <a class="aa-add-to-cart-btn" href="extremepark_tickets.jsp">Purchase Extreme Park Ticket(s)</a>
                     </div>
                     </form>    
                   </div>

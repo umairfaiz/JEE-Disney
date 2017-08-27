@@ -1,3 +1,11 @@
+<%-- 
+    Document   : extremepark_tickets
+    Created on : Aug 26, 2017, 4:23:09 AM
+    Author     : Umair
+--%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -342,45 +350,35 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table aa-wishlist-table">
-             <form action="">
+               <form action="ticketServlet" method="GET">
                <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Stock Status</th>
+                        <th>Game Type</th>
+                        <th>Ticket Price $</th>
+                        <th>Wrist ID</th>
+                        <th># of tickets</th>
                         <th></th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <sql:setDataSource var="db" driver="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby://localhost:1527/themePark" user="umair" password="1234"/>
+                   <sql:query var="parkList"  dataSource="${db}">
+                       SELECT * FROM UMAIR.EXTREMEPARKCB006302  
+                   </sql:query>
+                       
+                   <c:forEach items="${parkList.rows}" var="i">
                       <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$250</td>
-                        <td>In Stock</td>
-                        <td><a href="#" class="aa-add-to-cart-btn">Add To Cart</a></td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$150</td>
-                        <td>In Stock</td>
-                        <td><a href="#" class="aa-add-to-cart-btn">Add To Cart</a></td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="img/man/polo-shirt-3.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                        <td>$50</td>
-                        <td>In Stock</td>
-                        <td><a href="#" class="aa-add-to-cart-btn">Add To Cart</a></td>
-                      </tr>                     
-                      </tbody>
+                        <input type="hidden" name="gamePrice" value="${i.GAME_PRICE}" >
+                        <input type="hidden" name="gameType" value="${i.GAME_TYPE}" >
+                        
+                        <td><a class="aa-cart-title" href="#">${i.GAME_TYPE}</a></td>
+                        <td>${i.GAME_PRICE}</td>
+                        <td><input type="text" name="wristID"/></td>
+                        <td><input class="aa-cart-quantity" type="number" name="quantity" /></td>
+                        <td><button href="#" class="aa-add-to-cart-btn">Purchase ticket</button></td>
+                      </tr>             
+                    </c:forEach>   
                   </table>
                 </div>
              </form>             
@@ -555,3 +553,4 @@
 
   </body>
 </html>
+

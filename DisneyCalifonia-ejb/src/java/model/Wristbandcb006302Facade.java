@@ -49,6 +49,9 @@ public class Wristbandcb006302Facade extends AbstractFacade<Wristbandcb006302> i
 //        int old_expense = 
         int new_expense=old_expense+expense;
         
+        
+        Query query = em.createQuery("UPDATE Wristbandcb006302 u SET u.expence = :u WHERE u.wristId = :w").setParameter("u", new_expense).setParameter("w", wristid);
+        query.executeUpdate();
         return new_expense;
     }
     

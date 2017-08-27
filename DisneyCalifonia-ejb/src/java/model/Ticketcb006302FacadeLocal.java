@@ -33,4 +33,6 @@ public interface Ticketcb006302FacadeLocal {
     public void addticket(String ticketid,String wristID,String type1,String type2,String ticket_date, int ticket_price,String wristid, int credit, int expense);
     
     //public void addWristband(String wristid, int credit, int expense);
+    
+    public void addExtremeparkTicket(String ticketid,String wristID,String type1,String type2,String ticket_date, int ticket_price);
 }

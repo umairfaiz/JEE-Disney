@@ -6,7 +6,6 @@
 package com.src.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import static java.lang.System.out;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -14,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Elockercb006302FacadeLocal;
 import model.Wristbandcb006302FacadeLocal;
 
 /**
@@ -21,6 +21,7 @@ import model.Wristbandcb006302FacadeLocal;
  * @author Umair
  */
 public class e_loadServlet extends HttpServlet {
+
 
     @EJB
     private Wristbandcb006302FacadeLocal wristbandcb006302Facade;

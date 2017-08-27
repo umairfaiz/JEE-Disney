@@ -31,4 +31,6 @@ public interface Elockercb006302FacadeLocal {
     int count();
     
     public void addElocker(String lockerID, String wristID, String lockerType, int lockerPrice);
+    public boolean isLockerExist(String wristid, String lockerid);
+    
 }

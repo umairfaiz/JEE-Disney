@@ -348,7 +348,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="aa-contact-address-left">
-                                            <form class="comments-form contact-form" action="e_loadServlet" method="POST">
+                                            <form class="comments-form contact-form" action="lockerServlet" method="GET">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">                        
