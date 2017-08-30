@@ -7,6 +7,7 @@ package model;
 
 import entities.Ticketcb006302;
 import entities.Wristbandcb006302;
+import entities.Userdetails;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,6 +36,7 @@ public class Ticketcb006302Facade extends AbstractFacade<Ticketcb006302> impleme
     public void addticket(String ticketid, String wristID, String type1, String type2, String ticket_date, int ticket_price,String wristid, int credit, int expense) {
         Ticketcb006302 ticket = new Ticketcb006302();
         Wristbandcb006302 wristband = new Wristbandcb006302();
+        Userdetails userdetails = new Userdetails();
         
         wristband.setWristId(wristid);
         wristband.setCreditLimit(credit);
@@ -73,8 +75,8 @@ public class Ticketcb006302Facade extends AbstractFacade<Ticketcb006302> impleme
         
         
         ticket.setTicketId(ticketid);
-        //ticket.setWristId(new Wristbandcb006302(wristID));
-        ticket.setWristId(new Wristbandcb006302(wristband.getWristId()));
+        //ticket.setWristId(new Wristbandcb006302(wristband.getWristId()));
+        ticket.setWristId(new Wristbandcb006302(wristID));
         ticket.setTicketType(type1);
         ticket.setTicketType2(type2);
         ticket.setTicketDate(ticket_date);

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.UserdetailsFacadeLocal;
 
 /**
@@ -37,15 +38,22 @@ public class accountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //String userID= String.valueOf(randomID());
-        String Username= request.getParameter("username");
+        String wristid= request.getParameter("wristid");
         String userPassword= request.getParameter("password");
         
         RequestDispatcher rd;
-
-        if(userdetailsFacade.isUserExist(Username, userPassword)){
-            rd = request.getRequestDispatcher("adminIndex.jsp");
+        
+        //creating session
+        HttpSession loginsession = request.getSession();
+        loginsession.setAttribute("user", wristid);
+        
+        if(userdetailsFacade.isUserExist(wristid, userPassword)){
+//            rd = request.getRequestDispatcher("index.jsp");
+//            rd.forward(request, response);
+            rd = request.getRequestDispatcher("eload.jsp?loginstate=1");
             rd.forward(request, response);
-            out.println("Login was successful!");
+            out.println("Transaction ticket was successful!");
+            
         }
         else{
             rd = request.getRequestDispatcher("account.jsp");

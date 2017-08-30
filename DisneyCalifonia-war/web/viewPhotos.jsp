@@ -1,9 +1,10 @@
 <%-- 
-    Document   : bulletinBoard
-    Created on : Aug 22, 2017, 1:25:32 PM
+    Document   : viewPhotos
+    Created on : Aug 28, 2017, 9:25:13 PM
     Author     : Umair
 --%>
-
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Disney Park | Bulletin Board</title>
+    <title>Daily Shop | Product</title>
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -27,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
-    
+ 
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">    
@@ -43,11 +44,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  
 
   </head>
-  <body>
-  
+  <!-- !Important notice -->
+  <!-- Only for product page body tag have to added .productPage class -->
+  <body class="productPage">  
    <!-- wpf loader Two -->
     <div id="wpf-loader-two">          
       <div class="wpf-loader-two-inner">
@@ -62,7 +63,7 @@
 
   <!-- Start header section -->
   <header id="aa-header">
-     <!-- start header top  -->
+    <!-- start header top  -->
     <div class="aa-header-top">
       <div class="container">
         <div class="row">
@@ -302,7 +303,7 @@
                 </ul>
               </li>
               <li><a href="#">Furniture</a></li>            
-              <li><a href="blog-archive.html">Blog <span class="caret"></span></a>
+             <li><a href="blog-archive.html">Blog <span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="blog-archive.html">Blog Style 1</a></li>
                   <li><a href="blog-archive-2.html">Blog Style 2</a></li>
@@ -332,10 +333,10 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Blog Archive</h2>
+        <h2>Fashion</h2>
         <ol class="breadcrumb">
           <li><a href="index.html">Home</a></li>         
-          <li class="active">Blog Archive</li>
+          <li class="active">Women</li>
         </ol>
       </div>
      </div>
@@ -343,257 +344,89 @@
   </section>
   <!-- / catg header banner section -->
 
-  <!-- Blog Archive -->
-  <section id="aa-blog-archive">
+  <!-- product category -->
+  <section id="aa-product-category">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="aa-blog-archive-area">
-            <div class="row">
-              <div class="col-md-9">
-                <div class="aa-blog-content">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/3.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/2.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/1.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/3.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/2.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/1.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/3.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/2.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <article class="aa-blog-content-single">                        
-                        <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                        <figure class="aa-blog-img">
-                          <a href="#"><img src="img/fashion/1.jpg" alt="fashion img"></a>
-                        </figure>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatum accusamus dolorum ipsam adipisci laudantium laborum ipsa excepturi soluta, dolore similique, velit id, rerum repudiandae enim modi! Quo, debitis, in.</p>
-                        <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Posted By <a href="#">Jackson</a>
-                          </div>
-                          <div class="aa-post-date">
-                            March 26th 2016
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-
-                  </div>
-                </div>
-                <!-- Blog Pagination -->
-                <div class="aa-blog-archive-pagination">
-                  <nav>
-                    <ul class="pagination">
-                      <li>
-                        <a aria-label="Previous" href="#">
-                          <span aria-hidden="true">«</span>
-                        </a>
-                      </li>
-                      <li class="active"><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li>
-                        <a aria-label="Next" href="#">
-                          <span aria-hidden="true">»</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <aside class="aa-blog-sidebar">
-                  <div class="aa-sidebar-widget">
-                    <h3>Category</h3>
-                    <ul class="aa-catg-nav">
-                      <li><a href="#">Men</a></li>
-                      <li><a href="">Women</a></li>
-                      <li><a href="">Kids</a></li>
-                      <li><a href="">Electornics</a></li>
-                      <li><a href="">Sports</a></li>
-                    </ul>
-                  </div>
-                  <div class="aa-sidebar-widget">
-                    <h3>Tags</h3>
-                    <div class="tag-cloud">
-                      <a href="#">Fashion</a>
-                      <a href="#">Ecommerce</a>
-                      <a href="#">Shop</a>
-                      <a href="#">Hand Bag</a>
-                      <a href="#">Laptop</a>
-                      <a href="#">Head Phone</a>
-                      <a href="#">Pen Drive</a>
-                    </div>
-                  </div>
-                  <div class="aa-sidebar-widget">
-                    <h3>Recent Post</h3>
-                    <div class="aa-recently-views">
-                      <ul>
-                        <li>
-                          <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
-                          <div class="aa-cartbox-info">
-                            <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                            <p>March 26th 2016</p>
-                          </div>                    
-                        </li>
-                        <li>
-                          <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
-                          <div class="aa-cartbox-info">
-                            <h4><a href="#">Lorem ipsum dolor.</a></h4>
-                            <p>March 26th 2016</p>
-                          </div>                    
-                        </li>
-                         <li>
-                          <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
-                          <div class="aa-cartbox-info">
-                            <h4><a href="#">Lorem ipsum dolor.</a></h4>
-                            <p>March 26th 2016</p>
-                          </div>                    
-                        </li>                                      
-                      </ul>
-                    </div>                            
-                  </div>
-                </aside>
+        <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
+          <div class="aa-product-catg-content">
+            <div class="aa-product-catg-head">
+              
+              <div class="aa-product-catg-head-right">
+                <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
+                <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
               </div>
             </div>
-           
+            <div class="aa-product-catg-body">
+              <ul class="aa-product-catg">
+                  <sql:setDataSource var="db" driver="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby://localhost:1527/themePark" user="umair" password="1234"/>
+                   <sql:query var="photoList"  dataSource="${db}">
+                       SELECT PHOTO_ID FROM UMAIR.ADMIN_PHOTOSCB006302 where WRIST_ID='${user}' 
+                   </sql:query>
+                       
+                       <c:forEach items="${photoList.rows}" var="i">    
+                <!-- start single product item -->
+                <li>
+                    <form action="photoServlet" method ="POST">  
+                  <figure>
+                    <a class="aa-product-img" href="#"><img src="img/park/${i.PHOTO_ID}.png" alt="Image"></a>
+                    <input type="hidden" name="photoid" value="${i.PHOTO_ID}" />
+                    <a class="aa-add-card-btn"><span class="fa fa-shopping-cart"></span><button type="submit" style="background: black; border: none">Purchase</button></a>
+                    <figcaption>
+                      <h4 class="aa-product-title"><a href="#"></a></h4>
+                      <span class="aa-product-price"><input type="radio" name="rbnSize" value="Normal" checked="checked" /> Normal</span><span class="aa-product-price"><input type="radio" name="rbnSize" value="Framed" />Framed</span>
+                    </figcaption>
+                  </figure>
+                        </form>
+                </li>  
+                </c:forEach>
+              </ul>
+            </div>
+            <div class="aa-product-catg-pagination">
+              <nav>
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li><a href="#">1</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-md-pull-9">
+          <aside class="aa-sidebar">
+            <!-- single sidebar -->
+            <div class="aa-sidebar-widget">
+              <h3>Category</h3>
+              <ul class="aa-catg-nav">
+                <li><a href="#">Extreme Park</a></li>
+                <li><a href="">Pc world</a></li>
+                <li><a href="">Sea Worls</a></li>
+                <li><a href="">Water Park</a></li>
+              </ul>
+            </div>
+            <div class="aa-sidebar-widget">
+              <h3>Information</h3>
+              <ul class="aa-catg-nav">
+                <li>Normal photos : $5</li>
+                <li>Framed photos : $10</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+       
       </div>
     </div>
   </section>
-  <!-- / Blog Archive -->
+  <!-- / product category -->
 
 
   <!-- Subscribe section -->
@@ -708,7 +541,7 @@
     </div>
   </footer>
   <!-- / footer -->
-   <!-- Login Modal -->  
+  <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
@@ -734,25 +567,25 @@
 
 
     
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.js"></script>  
-	<!-- SmartMenus jQuery plugin -->
-	<script type="text/javascript" src="js/jquery.smartmenus.js"></script>
-	<!-- SmartMenus jQuery Bootstrap Addon -->
-	<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
-	<!-- Product view slider -->
-	<script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
-	<script type="text/javascript" src="js/jquery.simpleLens.js"></script>
-	<!-- slick slider -->
-	<script type="text/javascript" src="js/slick.js"></script>
-	<!-- Price picker slider -->
-	<script type="text/javascript" src="js/nouislider.js"></script>
-	
-	<!-- Custom js -->
-	<script src="js/custom.js"></script> 
- 
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.js"></script>  
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
+  <!-- Product view slider -->
+  <script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
+  <script type="text/javascript" src="js/jquery.simpleLens.js"></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src="js/slick.js"></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src="js/nouislider.js"></script>
+  
+  <!-- Custom js -->
+  <script src="js/custom.js"></script> 
+  
 
   </body>
 </html>

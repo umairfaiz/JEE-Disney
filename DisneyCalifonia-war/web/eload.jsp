@@ -106,11 +106,17 @@
                                 <!-- / header top left -->
                                 <div class="aa-header-top-right">
                                     <ul class="aa-head-top-nav-right">
-                                        <li><a href="account.html">My Account</a></li>
-                                        <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                                        <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                                        <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                                        <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
+                                        <c:if test="${loginstate ==null}">    
+                                            <li><a href="account.jsp">My Account</a></li>
+                                        </c:if>
+                                        <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
+                                        <c:if test="${loginstate !=null}" >   
+                                        <li class="hidden-xs"><a href="elocker.jsp">Elocker</a></li>
+                                        <li class="hidden-xs"><a href="ticket.jsp">Tickets</a></li>
+                                        <li class="hidden-xs"><a href="photos.jsp">Upload Photos</a></li>
                                         <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                        </c:if>
                                     </ul>
                                 </div>
                             </div>
@@ -208,7 +214,7 @@
                         <div class="navbar-collapse collapse">
                             <!-- Left nav -->
                             <ul class="nav navbar-nav">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index.jsp">Home</a></li>
                                 <li><a href="#">Men <span class="caret"></span></a>
                                     <ul class="dropdown-menu">                
                                         <li><a href="#">Casual</a></li>

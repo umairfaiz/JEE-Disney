@@ -411,7 +411,7 @@
               <div class="col-md-5 no-padding">                
                 <div class="aa-promo-left">
                   <div class="aa-promo-banner">                    
-                    <img src="img/promo-banner-1.jpg" alt="img">                    
+                    <img src="img/E1.jpg" alt="img">                    
                     <div class="aa-prom-content">
                       <span>75% Off</span>
                       <h4><a href="#">For Women</a></h4>                      
@@ -424,7 +424,7 @@
                 <div class="aa-promo-right">
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-3.jpg" alt="img">                      
+                      <img src="img/E3.jpg" alt="img">                      
                       <div class="aa-prom-content">
                         <span>Exclusive Item</span>
                         <h4><a href="#">For Men</a></h4>                        
@@ -433,7 +433,7 @@
                   </div>
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-2.jpg" alt="img">                      
+                      <img src="img/E2.jpg" alt="img">                      
                       <div class="aa-prom-content">
                         <span>Sale Off</span>
                         <h4><a href="#">On Shoes</a></h4>                        
@@ -442,7 +442,7 @@
                   </div>
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-4.jpg" alt="img">                      
+                      <img src="img/E4.jpg" alt="img">                      
                       <div class="aa-prom-content">
                         <span>New Arrivals</span>
                         <h4><a href="#">For Kids</a></h4>                        
@@ -1736,7 +1736,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-1.jpg" alt="img"></a>  
+                    <a href="#"><img src="img/E1.jpg" alt="img"></a>  
                       <figcaption class="aa-blog-img-caption">
                       <span href="#"><i class="fa fa-eye"></i>5K</span>
                       <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
@@ -1755,7 +1755,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-3.jpg" alt="img"></a>  
+                    <a href="#"><img src="img/E3.jpg" alt="img"></a>  
                       <figcaption class="aa-blog-img-caption">
                       <span href="#"><i class="fa fa-eye"></i>5K</span>
                       <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
@@ -1774,7 +1774,7 @@
               <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                   <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-1.jpg" alt="img"></a>  
+                    <a href="#"><img src="img/E1.jpg" alt="img"></a>  
                       <figcaption class="aa-blog-img-caption">
                       <span href="#"><i class="fa fa-eye"></i>5K</span>
                       <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>

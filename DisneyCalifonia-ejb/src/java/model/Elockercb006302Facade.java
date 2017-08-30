@@ -46,9 +46,9 @@ public class Elockercb006302Facade extends AbstractFacade<Elockercb006302> imple
 
     @Override
     public boolean isLockerExist(String wristid, String lockerid) {
-        Query query = em.createQuery("SELECT e FROM Elockercb006302 e WHERE e.elockerId = :elockerId").setParameter("elockerId", lockerid);
+        Query query = em.createNamedQuery("Elockercb006302.findByElockerId").setParameter("elockerId", lockerid);
         boolean flag=true;
-        if(query.getResultList()!=null){
+        if(!query.getResultList().isEmpty()){
             return flag=true;
         }
        else{

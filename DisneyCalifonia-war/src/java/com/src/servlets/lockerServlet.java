@@ -34,23 +34,25 @@ public class lockerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String wrist_id= request.getParameter("wrsitid");
+       //String wrist_id= request.getParameter("wrsitid");
+       String wrist_id= request.getSession().getAttribute("user").toString();
        String elocker_id= request.getParameter("elockerid");
        int reuse_charges=reuseLocker();
        
        RequestDispatcher rd;
        
-       wristbandcb006302Facade.updateExpense(wrist_id, reuse_charges);
+       
 
         if(elockercb006302Facade.isLockerExist(wrist_id, elocker_id)){
-             rd = request.getRequestDispatcher("elocker.jsp");
+             wristbandcb006302Facade.updateExpense(wrist_id, reuse_charges);
+             rd = request.getRequestDispatcher("elocker.jsp?loginstate=1");
              rd.forward(request, response);
-             out.println("Locker not available at the moment. Try getting a new locker");
+             out.println("Transaction successful");
         }
         else{
-             rd = request.getRequestDispatcher("index.jsp");
+             rd = request.getRequestDispatcher("index.jsp?loginstate=1");
              rd.forward(request, response);
-             out.println("Your Locker was Reserved successfuly");
+             out.println("No such locker in DB");
         }
     }
     
@@ -59,7 +61,8 @@ public class lockerServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String locker_id=String.valueOf(randomID());
-        String wrist_id= request.getParameter("wristid");
+        //String wrist_id= request.getParameter("wristid");
+        String wrist_id= request.getSession().getAttribute("user").toString();
         String locker_type= request.getParameter("drpLockerType");
         int locker_charges=lockerCost(locker_type);
         

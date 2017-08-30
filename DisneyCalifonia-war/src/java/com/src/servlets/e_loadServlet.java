@@ -36,20 +36,21 @@ public class e_loadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String wrist_id= request.getParameter("wrsitid");
+        //String wrist_id= request.getParameter("wrsitid");
+        String wrist_id= request.getSession().getAttribute("user").toString();
         int wrist_credit= Integer.parseInt(request.getParameter("wrist_amount"));
         
         RequestDispatcher rd;
         
-        try{
+        if(request.getSession().getAttribute("user").equals(wrist_id)){
             wristbandcb006302Facade.updateCredit(wrist_id, wrist_credit);
-            rd = request.getRequestDispatcher("index.jsp");
+            rd = request.getRequestDispatcher("index.jsp?loginstate=1");
             rd.forward(request, response);
             out.println("Transaction was successful!");
-        }catch(Exception ex){
-            rd = request.getRequestDispatcher("eload.jsp");
+        }else{
+            rd = request.getRequestDispatcher("eload.jsp?loginstate=1");
             rd.forward(request, response);
-            out.println(ex + "Try again");
+            out.println("Try again");
         }
     }
 

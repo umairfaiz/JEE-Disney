@@ -3,7 +3,8 @@
     Created on : Aug 22, 2017, 1:42:31 PM
     Author     : Umair
 --%>
-
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +83,6 @@
                   </div>
                 </div>
                 <!-- / language -->
-
                 <!-- start currency -->
                 <div class="aa-currency">
                   <div class="dropdown">
@@ -106,11 +106,19 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html">My Account</a></li>
+                  <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
+                  <c:if test="${loginstate ==null}">    
+                      <li><a href="account.jsp">My Account</a></li>
+                      <li><a href="adminServlet" >Login</a></li>
+                  </c:if>
+                  <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
+                  <c:if test="${loginstate !=null}" >   
                   <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li class="hidden-xs"><a href="ticket.jsp">Tickets</a></li>
+                  <li class="hidden-xs"><a href="photos.jsp">Upload Photos</a></li>
+                  <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  </c:if>
+                 
                 </ul>
               </div>
             </div>
@@ -411,7 +419,7 @@
               <div class="col-md-5 no-padding">                
                 <div class="aa-promo-left">
                   <div class="aa-promo-banner">                    
-                    <img src="img/promo-banner-1.jpg" alt="img">                    
+                    <img src="img/E1.jpg" alt="img">                    
                     <div class="aa-prom-content">
                       <h4><a href="ticket.jsp">Ticket Purchase</a></h4>                      
                     </div>
@@ -423,7 +431,7 @@
                 <div class="aa-promo-right">
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-3.jpg" alt="img">                      
+                      <img src="img/E3.jpg" alt="img">                      
                       <div class="aa-prom-content">
                         <h4><a href="eload.jsp">E-LOAD</a></h4>                        
                       </div>
@@ -431,7 +439,7 @@
                   </div>
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-2.jpg" alt="img">                      
+                      <img src="img/E2.jpg" alt="img">                      
                       <div class="aa-prom-content">
                         <h4><a href="elocker.jsp">E-LOCKER</a></h4>                        
                       </div>
@@ -439,9 +447,9 @@
                   </div>
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-4.jpg" alt="img">                      
+                      <img src="img/E4.jpg" alt="img">                      
                       <div class="aa-prom-content">
-                        <h4><a href="#">PHOTO STALL</a></h4>                        
+                        <h4><a href="viewPhotos.jsp">PHOTO STALL</a></h4>                        
                       </div>
                     </div>
                   </div>
@@ -469,65 +477,33 @@
         <div class="col-md-12">
           <div class="aa-latest-blog-area">
             <h2>BULLETIN BOARD</h2>
+            <sql:setDataSource var="db" driver="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby://localhost:1527/themePark" user="umair" password="1234"/>
+                   <sql:query var="bulletinList"  dataSource="${db}">
+                       SELECT * FROM UMAIR.BULLETINBOARDCB006302  
+                   </sql:query>
+                      
             <div class="row">
-              <!-- single latest blog -->
-              <div class="col-md-4 col-sm-4">
+                     <c:forEach items="${bulletinList.rows}" var="i">
+                    <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
+                    
                   <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-1.jpg" alt="img"></a>  
+                    <a href="#"><img src="img/${i.EVENT_ID}.jpg" alt="img"></a>  
                       <figcaption class="aa-blog-img-caption">
-                      <span href="#"><i class="fa fa-eye"></i>5K</span>
-                      <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                      <a href="#"><i class="fa fa-comment-o"></i>20</a>
-                      <span href="#"><i class="fa fa-clock-o"></i>June 26, 2016</span>
+                      <a href="#"><i class="fa fa-clock-o"></i>Staring time ${i.EVENT_TIME}</a>
                     </figcaption>                          
                   </figure>
                   <div class="aa-blog-info">
-                    <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p> 
-                    <a href="#" class="aa-read-mor-btn">Read more <span class="fa fa-long-arrow-right"></span></a>
+                    <h3 class="aa-blog-title"><a href="#">${i.EVENT_NAME}</a></h3>
                   </div>
+                  
                 </div>
               </div>
+                </c:forEach>
               <!-- single latest blog -->
-              <div class="col-md-4 col-sm-4">
-                <div class="aa-latest-blog-single">
-                  <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-3.jpg" alt="img"></a>  
-                      <figcaption class="aa-blog-img-caption">
-                      <span href="#"><i class="fa fa-eye"></i>5K</span>
-                      <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                      <a href="#"><i class="fa fa-comment-o"></i>20</a>
-                      <span href="#"><i class="fa fa-clock-o"></i>June 26, 2016</span>
-                    </figcaption>                          
-                  </figure>
-                  <div class="aa-blog-info">
-                    <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p> 
-                     <a href="#" class="aa-read-mor-btn">Read more <span class="fa fa-long-arrow-right"></span></a>         
-                  </div>
-                </div>
-              </div>
-              <!-- single latest blog -->
-              <div class="col-md-4 col-sm-4">
-                <div class="aa-latest-blog-single">
-                  <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/promo-banner-1.jpg" alt="img"></a>  
-                      <figcaption class="aa-blog-img-caption">
-                      <span href="#"><i class="fa fa-eye"></i>5K</span>
-                      <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                      <a href="#"><i class="fa fa-comment-o"></i>20</a>
-                      <span href="#"><i class="fa fa-clock-o"></i>June 26, 2016</span>
-                    </figcaption>                          
-                  </figure>
-                  <div class="aa-blog-info">
-                    <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p> 
-                    <a href="#" class="aa-read-mor-btn">Read more <span class="fa fa-long-arrow-right"></span></a>
-                  </div>
-                </div>
-              </div>
+              
             </div>
+                  
           </div>
         </div>    
       </div>

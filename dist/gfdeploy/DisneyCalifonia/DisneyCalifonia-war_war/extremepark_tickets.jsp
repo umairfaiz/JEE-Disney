@@ -350,7 +350,6 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table aa-wishlist-table">
-               <form action="ticketServlet" method="GET">
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -369,6 +368,8 @@
                        
                    <c:forEach items="${parkList.rows}" var="i">
                       <tr>
+                                         <form action="ticketServlet" method="GET">
+
                         <input type="hidden" name="gamePrice" value="${i.GAME_PRICE}" >
                         <input type="hidden" name="gameType" value="${i.GAME_TYPE}" >
                         
@@ -377,15 +378,12 @@
                         <td><input type="text" name="wristID"/></td>
                         <td><input class="aa-cart-quantity" type="number" name="quantity" /></td>
                         <td><button href="#" class="aa-add-to-cart-btn">Purchase ticket</button></td>
+                                     </form>             
+
                       </tr>             
                     </c:forEach>   
                   </table>
-                   Select locker type : <select name="drpLockerType">
-                          <option>Family</option>
-                          <option>Individual</option>
-                      </select>
                 </div>
-             </form>             
            </div>
          </div>
        </div>

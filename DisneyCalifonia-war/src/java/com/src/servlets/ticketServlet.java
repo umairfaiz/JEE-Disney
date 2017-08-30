@@ -39,7 +39,8 @@ public class ticketServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String wristid = request.getParameter("wristID");
+        //String wristid = request.getParameter("wristID");
+        String wristid =request.getSession().getAttribute("user").toString();
         String ticketid=String.valueOf(randomID());
         String gameType=request.getParameter("gameType"); //ticket_Type
         String ticketQty=request.getParameter("quantity"); //ticket_Type2
@@ -51,12 +52,12 @@ public class ticketServlet extends HttpServlet {
         wristbandcb006302Facade.updateExpense(wristid, expense);
         try{
             ticketcb006302Facade.addExtremeparkTicket(ticketid,wristid,gameType,ticketQty,ticket_date, ticketPrice);
-            rd = request.getRequestDispatcher("extremepark_tickets.jsp");
+            rd = request.getRequestDispatcher("extremepark_tickets.jsp?loginstate=1");
             rd.forward(request, response);
             out.println("Transaction ticket was successful!");
         }
         catch(Exception ex){
-            rd = request.getRequestDispatcher("ticket.jsp");
+            rd = request.getRequestDispatcher("ticket.jsp?loginstate=1");
             rd.forward(request, response);
             out.println(ex + "Try again");
         }
@@ -82,7 +83,7 @@ public class ticketServlet extends HttpServlet {
         
         try{
             ticketcb006302Facade.addticket(ticketid,wristID,type1,type2,ticket_date, ticket_price, wristID, credit, expense);
-            rd = request.getRequestDispatcher("eload.jsp");
+            rd = request.getRequestDispatcher("account.jsp");
             rd.forward(request, response);
             out.println("Transaction ticket was successful!");
         }

@@ -36,6 +36,9 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Wristbandcb006302 implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "wristId")
+    private Collection<Photocb006302> photocb006302Collection;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "wristId")
     private Collection<Elockercb006302> elockercb006302Collection;
 
     private static final long serialVersionUID = 1L;
@@ -124,6 +127,15 @@ public class Wristbandcb006302 implements Serializable {
 
     public void setElockercb006302Collection(Collection<Elockercb006302> elockercb006302Collection) {
         this.elockercb006302Collection = elockercb006302Collection;
+    }
+
+    @XmlTransient
+    public Collection<Photocb006302> getPhotocb006302Collection() {
+        return photocb006302Collection;
+    }
+
+    public void setPhotocb006302Collection(Collection<Photocb006302> photocb006302Collection) {
+        this.photocb006302Collection = photocb006302Collection;
     }
     
 }

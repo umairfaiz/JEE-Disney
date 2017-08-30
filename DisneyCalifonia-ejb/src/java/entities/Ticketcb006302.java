@@ -42,7 +42,7 @@ public class Ticketcb006302 implements Serializable {
     @Size(min = 1, max = 6)
     @Column(name = "TICKET_ID")
     private String ticketId;
-    @Size(max = 10)
+    @Size(max = 100)
     @Column(name = "TICKET_TYPE")
     private String ticketType;
     @Size(max = 20)
@@ -50,7 +50,7 @@ public class Ticketcb006302 implements Serializable {
     private String ticketDate;
     @Column(name = "TICKET_PRICE")
     private Integer ticketPrice;
-    @Size(max = 10)
+    @Size(max = 100)
     @Column(name = "TICKET_TYPE2")
     private String ticketType2;
     @JoinColumn(name = "WRIST_ID", referencedColumnName = "WRIST_ID")
