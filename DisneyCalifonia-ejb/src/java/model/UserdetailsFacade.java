@@ -45,12 +45,20 @@ public class UserdetailsFacade extends AbstractFacade<Userdetails> implements Us
     @Override
     public boolean isUserExist(String usr, String pwd) {
         //Userdetails checkUser=new Userdetails();
+        boolean flag=false;
+        
         Query query = em.createQuery("SELECT u FROM Userdetails u WHERE u.username = :u").setParameter("u", usr);
         
-        if(query.getResultList()!=null){
-            return true;
+        if(!query.getResultList().isEmpty()){
+             flag=true;
         }
-         return false;
+         return flag;
+    }
+
+    @Override
+    public void removeusername(String id) {
+        Query query = em.createQuery("DELETE FROM Userdetails c WHERE c.username = :u").setParameter("u", id);
+        query.executeUpdate();
     }
     
 }

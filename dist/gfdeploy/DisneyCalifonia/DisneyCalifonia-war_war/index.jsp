@@ -108,15 +108,16 @@
                 <ul class="aa-head-top-nav-right">
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate ==null}">    
-                      <li><a href="account.jsp">My Account</a></li>
-                      <li><a href="adminServlet" >Login</a></li>
+                      <li><a href="ticket.jsp">Tickets</a></li>
+                      <li><a href="account.jsp" >Customer Login</a></li>
+                      <li><a href="adminServlet" >Admin Login</a></li>
                   </c:if>
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate !=null}" >   
-                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                  <li class="hidden-xs"><a href="ticket.jsp">Tickets</a></li>
-                  <li class="hidden-xs"><a href="photos.jsp">Upload Photos</a></li>
-                  <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li class="hidden-xs"><a href="extremepark_tickets.jsp">Xtreme tickets</a></li>
+                  <li class="hidden-xs"><a href="checkout.jsp">Checkout</a></li>
+                  <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
+                  <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
                   </c:if>
                  
                 </ul>
@@ -147,48 +148,24 @@
               <!-- / logo  -->
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
-                  <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">SHOPPING CART</span>
-                  <span class="aa-cart-notify">2</span>
+                <a class="aa-cart-link">
+                    <sql:setDataSource var="db" driver="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby://localhost:1527/themePark" user="umair" password="1234"/>
+                   <sql:query var="wristList"  dataSource="${db}">
+                       SELECT * FROM WRISTBANDCB006302 where WRIST_ID='${user}' 
+                   </sql:query>
+                   <c:forEach items="${wristList.rows}" var="i">    
+                   <span class="aa-cart-title">Total Expense $ ${i.EXPENCE}</span>
+                   </c:forEach>  
                 </a>
-                <div class="aa-cartbox-summary">
-                  <ul>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
-                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                      <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                    </li>
-                  </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
-                </div>
               </div>
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
-                <form action="">
-                  <input type="text" name="" id="" placeholder="Search here ex. 'man' ">
-                  <button type="submit"><span class="fa fa-search"></span></button>
-                </form>
+                  <span>${requestScope.message1}</span>
+                  <span>${requestScope.elockersuccess}</span>
+                  <span>${requestScope.lockID}</span>
+                  <span>${requestScope.reusesuccess}</span>
+                  <span>${requestScope.balances}</span>
               </div>
               <!-- / search box -->             
             </div>
@@ -213,118 +190,6 @@
               <span class="icon-bar"></span>
             </button>          
           </div>
-          <div class="navbar-collapse collapse">
-            <!-- Left nav -->
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="#">Men <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>
-                  <li><a href="#">Standard</a></li>                                                
-                  <li><a href="#">T-Shirts</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Trousers</a></li>
-                  <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>                                      
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#">Women <span class="caret"></span></a>
-                <ul class="dropdown-menu">  
-                  <li><a href="#">Kurta & Kurti</a></li>                                                                
-                  <li><a href="#">Trousers</a></li>              
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>                
-                  <li><a href="#">Sarees</a></li>
-                  <li><a href="#">Shoes</a></li>
-                  <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>
-                      <li><a href="#">And more.. <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Rings</a></li>
-                          <li><a href="#">Earrings</a></li>
-                          <li><a href="#">Jewellery Sets</a></li>
-                          <li><a href="#">Lockets</a></li>
-                          <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>                       
-                          <li><a href="#">Jeans</a></li>
-                          <li><a href="#">Polo T-Shirts</a></li>
-                          <li><a href="#">SKirts</a></li>
-                          <li><a href="#">Jackets</a></li>
-                          <li><a href="#">Tops</a></li>
-                          <li><a href="#">Make Up</a></li>
-                          <li><a href="#">Hair Care</a></li>
-                          <li><a href="#">Perfumes</a></li>
-                          <li><a href="#">Skin Care</a></li>
-                          <li><a href="#">Hand Bags</a></li>
-                          <li><a href="#">Single Bags</a></li>
-                          <li><a href="#">Travel Bags</a></li>
-                          <li><a href="#">Wallets & Belts</a></li>                        
-                          <li><a href="#">Sunglases</a></li>
-                          <li><a href="#">Nail</a></li>                       
-                        </ul>
-                      </li>                   
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#">Kids <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Casual</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Formal</a></li>
-                  <li><a href="#">Standard</a></li>                                                
-                  <li><a href="#">T-Shirts</a></li>
-                  <li><a href="#">Shirts</a></li>
-                  <li><a href="#">Jeans</a></li>
-                  <li><a href="#">Trousers</a></li>
-                  <li><a href="#">And more.. <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Sleep Wear</a></li>
-                      <li><a href="#">Sandals</a></li>
-                      <li><a href="#">Loafers</a></li>                                      
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#">Sports</a></li>
-             <li><a href="#">Digital <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Camera</a></li>
-                  <li><a href="#">Mobile</a></li>
-                  <li><a href="#">Tablet</a></li>
-                  <li><a href="#">Laptop</a></li>                                                
-                  <li><a href="#">Accesories</a></li>                
-                </ul>
-              </li>
-              <li><a href="#">Furniture</a></li>            
-              <li><a href="blog-archive.html">Blog <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="blog-archive.html">Blog Style 1</a></li>
-                  <li><a href="blog-archive-2.html">Blog Style 2</a></li>
-                  <li><a href="blog-single.html">Blog Single</a></li>                
-                </ul>
-              </li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="#">Pages <span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="product.html">Shop Page</a></li>
-                  <li><a href="product-detail.html">Shop Single</a></li>                
-                  <li><a href="404.html">404 Page</a></li>                
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>       
     </div>
@@ -408,6 +273,8 @@
     </div>
   </section>
   <!-- / slider -->
+<c:set var="loginstate" scope="request" value="${param.loginstate}"/>
+<c:if test="${loginstate !=null}">  
   <!-- Start Promo section -->
   <section id="aa-promo">
     <div class="container">
@@ -457,7 +324,7 @@
                     <div class="aa-promo-banner">                      
                       <img src="img/promo-banner-5.jpg" alt="img">                      
                       <div class="aa-prom-content">
-                        <h4><a href="#">Checkout</a></h4>                        
+                        <h4><a href="food.jsp">Food</a></h4>                        
                       </div>
                     </div>
                   </div>
@@ -469,6 +336,7 @@
       </div>
     </div>
   </section>
+  </c:if>
   <!-- / Promo section -->
   <!-- Latest Blog -->
   <section id="aa-latest-blog">
@@ -560,27 +428,14 @@
                   <h3>Main Menu</h3>
                   <ul class="aa-footer-nav">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Our hotels</a></li>
+                    <li><a href="#">Our stalls</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Knowledge Base</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Delivery</a></li>
-                      <li><a href="#">Returns</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Discount</a></li>
-                      <li><a href="#">Special Offer</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
@@ -589,7 +444,7 @@
                       <li><a href="#">Site Map</a></li>
                       <li><a href="#">Search</a></li>
                       <li><a href="#">Advanced Search</a></li>
-                      <li><a href="#">Suppliers</a></li>
+                      <li><a href="#">Food Suppliers</a></li>
                       <li><a href="#">FAQ</a></li>
                     </ul>
                   </div>
@@ -600,9 +455,9 @@
                   <div class="aa-footer-widget">
                     <h3>Contact Us</h3>
                     <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
+                      <p> 25 Astor Pl, California, USA</p>
                       <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
+                      <p><span class="fa fa-envelope"></span>disney@gmail.com</p>
                     </address>
                     <div class="aa-footer-social">
                       <a href="#"><span class="fa fa-facebook"></span></a>

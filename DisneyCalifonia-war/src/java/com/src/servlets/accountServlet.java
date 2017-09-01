@@ -47,16 +47,16 @@ public class accountServlet extends HttpServlet {
         HttpSession loginsession = request.getSession();
         loginsession.setAttribute("user", wristid);
         
-        if(userdetailsFacade.isUserExist(wristid, userPassword)){
+        if(userdetailsFacade.isUserExist(wristid, userPassword)==true){
 //            rd = request.getRequestDispatcher("index.jsp");
 //            rd.forward(request, response);
-            rd = request.getRequestDispatcher("eload.jsp?loginstate=1");
+            rd = request.getRequestDispatcher("index.jsp?loginstate=1");
             rd.forward(request, response);
             out.println("Transaction ticket was successful!");
             
         }
         else{
-            rd = request.getRequestDispatcher("account.jsp");
+            rd = request.getRequestDispatcher("account.jsp?loginfail=1");
             rd.forward(request, response);
             out.println("Try again");
         }

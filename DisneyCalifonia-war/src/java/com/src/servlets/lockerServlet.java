@@ -38,6 +38,8 @@ public class lockerServlet extends HttpServlet {
        String wrist_id= request.getSession().getAttribute("user").toString();
        String elocker_id= request.getParameter("elockerid");
        int reuse_charges=reuseLocker();
+       String lockererror="There is no such locker. Try again with a valid ID!";
+       String reusesuccess="Locker was reserved again successfully!";
        
        RequestDispatcher rd;
        
@@ -45,12 +47,14 @@ public class lockerServlet extends HttpServlet {
 
         if(elockercb006302Facade.isLockerExist(wrist_id, elocker_id)){
              wristbandcb006302Facade.updateExpense(wrist_id, reuse_charges);
-             rd = request.getRequestDispatcher("elocker.jsp?loginstate=1");
+             request.setAttribute("reusesuccess", reusesuccess);
+             rd = request.getRequestDispatcher("index.jsp?loginstate=1");
              rd.forward(request, response);
              out.println("Transaction successful");
         }
         else{
-             rd = request.getRequestDispatcher("index.jsp?loginstate=1");
+            request.setAttribute("lockererror", lockererror);
+             rd = request.getRequestDispatcher("elocker.jsp?loginstate=1");
              rd.forward(request, response);
              out.println("No such locker in DB");
         }
@@ -65,16 +69,33 @@ public class lockerServlet extends HttpServlet {
         String wrist_id= request.getSession().getAttribute("user").toString();
         String locker_type= request.getParameter("drpLockerType");
         int locker_charges=lockerCost(locker_type);
+        String elockersuccess="E-locker was purchased successfully!";
+        String elockerfail="Something went wrong try again!";
+        String lockID= " Locker ID : "+locker_id;
+        int reloaded_amount=wristbandcb006302Facade.returnCredit(wrist_id);
+       int expenditure=wristbandcb006302Facade.returnExpense(wrist_id);
+        String lowcredit="Not enough credit to buy this item";
         
         RequestDispatcher rd;
         wristbandcb006302Facade.updateExpense(wrist_id, locker_charges);
         try{
-            elockercb006302Facade.addElocker(locker_id, wrist_id, locker_type, locker_charges);
-            rd = request.getRequestDispatcher("index.jsp");
-            rd.forward(request, response);
-            out.println("Transaction ticket was successful!");
+            if(reloaded_amount>expenditure){
+                elockercb006302Facade.addElocker(locker_id, wrist_id, locker_type, locker_charges);
+                request.setAttribute("elockersuccess", elockersuccess);
+                request.setAttribute("lockID", lockID);
+                rd = request.getRequestDispatcher("index.jsp?loginstate=1");
+                rd.forward(request, response);
+                out.println("Transaction ticket was successful!");
+            }
+            else{
+                request.setAttribute("lowcredit", lowcredit);
+                rd = request.getRequestDispatcher("eload.jsp?loginstate=1");
+                rd.forward(request, response);
+                out.println("Transaction successful");
+            }
         }catch(Exception ex){
-            rd = request.getRequestDispatcher("elocker.jsp");
+            request.setAttribute("elockerfail", elockerfail);
+            rd = request.getRequestDispatcher("elocker.jsp?loginstate=1");
             rd.forward(request, response);
             out.println(ex + ". Try again");
         

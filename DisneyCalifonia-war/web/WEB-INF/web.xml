@@ -32,6 +32,38 @@
         <servlet-name>photoServlet</servlet-name>
         <servlet-class>com.src.servlets.photoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bulletinServlet</servlet-name>
+        <servlet-class>com.src.servlets.bulletinServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>foodServlet</servlet-name>
+        <servlet-class>com.src.servlets.foodServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkoutServlet</servlet-name>
+        <servlet-class>com.src.servlets.checkoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>com.src.servlets.logoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>purchasePhoto</servlet-name>
+        <servlet-class>com.src.servlets.purchasePhotoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>purchase_photoServlet</servlet-name>
+        <servlet-class>com.src.servlets.purchase_photoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>salesServlet</servlet-name>
+        <servlet-class>com.src.servlets.CheckBalanceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>com.src.servlets.NewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>accountServlet</servlet-name>
         <url-pattern>/accountServlet</url-pattern>
@@ -63,6 +95,38 @@
     <servlet-mapping>
         <servlet-name>photoServlet</servlet-name>
         <url-pattern>/photoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bulletinServlet</servlet-name>
+        <url-pattern>/bulletinServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>foodServlet</servlet-name>
+        <url-pattern>/foodServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkoutServlet</servlet-name>
+        <url-pattern>/checkoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>purchasePhoto</servlet-name>
+        <url-pattern>/purchasePhoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>purchase_photoServlet</servlet-name>
+        <url-pattern>/purchase_photoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>salesServlet</servlet-name>
+        <url-pattern>/salesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

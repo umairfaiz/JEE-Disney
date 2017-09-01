@@ -7,7 +7,9 @@ package model;
 
 import entities.Photocb006302;
 import entities.Wristbandcb006302;
+import entities.AdminPhotoscb006302;
 import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -36,15 +38,15 @@ public class Photocb006302Facade extends AbstractFacade<Photocb006302> implement
     @RolesAllowed({"AdminRole"})
     @Override
     public void uploadPhoto(String photoid, String wristid) {
-            Photocb006302 photo = new Photocb006302();
+            AdminPhotoscb006302 photo = new AdminPhotoscb006302();
             Wristbandcb006302 wristband = new Wristbandcb006302();
             
             photo.setPhotoId(photoid);
-            //photo.setWristId(new Wristbandcb006302(wristband.getWristId()));
-            photo.setWristId(new Wristbandcb006302(wristid));
+            photo.setWristId(wristid);
+            //photo.setWristId(new Wristbandcb006302(wristid));
             em.persist(photo);
     }
-
+    @PermitAll
     @Override
     public void addPhoto(String photoid, String wristid, String type, String price) {
         Photocb006302 photo = new Photocb006302();

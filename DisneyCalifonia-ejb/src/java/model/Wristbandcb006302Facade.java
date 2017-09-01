@@ -54,6 +54,26 @@ public class Wristbandcb006302Facade extends AbstractFacade<Wristbandcb006302> i
         query.executeUpdate();
         return new_expense;
     }
+    @Override
+    public int returnCredit(String wristid){
+        
+        Wristbandcb006302 exp = em.find(Wristbandcb006302.class, wristid);
+        int reload=exp.getCreditLimit();
+        return reload;
+    }
+
+    @Override
+    public int returnExpense(String wristid) {
+        Wristbandcb006302 exp = em.find(Wristbandcb006302.class, wristid);
+        int expense=exp.getExpence();
+        return expense;
+    }
+
+    @Override
+    public void removeUser(String id) {
+        Wristbandcb006302 exp = em.find(Wristbandcb006302.class, id);
+        em.remove(exp);
+    }
     
     
     

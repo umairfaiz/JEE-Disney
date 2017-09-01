@@ -84,6 +84,8 @@ public class Ticketcb006302Facade extends AbstractFacade<Ticketcb006302> impleme
         //em.getTransaction().begin();
         em.persist(ticket);
     }
+
+   
     
     
     

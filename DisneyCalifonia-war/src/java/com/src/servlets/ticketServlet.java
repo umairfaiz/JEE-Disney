@@ -18,7 +18,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.Ticketcb006302FacadeLocal;
+import model.UserdetailsFacadeLocal;
 import model.Wristbandcb006302FacadeLocal;
 
 /**
@@ -26,6 +29,9 @@ import model.Wristbandcb006302FacadeLocal;
  * @author Umair
  */
 public class ticketServlet extends HttpServlet {
+
+    @EJB
+    private UserdetailsFacadeLocal userdetailsFacade;
 
     @EJB
     private Wristbandcb006302FacadeLocal wristbandcb006302Facade;
@@ -47,16 +53,33 @@ public class ticketServlet extends HttpServlet {
         int ticketPrice=Integer.parseInt(request.getParameter("gamePrice"));
         String ticket_date = dtf.format(localDate);
         int expense = Integer.parseInt(ticketQty)*  ticketPrice;
+        String xtremesuccess="Ticket(s) was purchased successfully!";
+        String xtremefail="Ticket purchase failed. Try again!";
+        int reloaded_amount=wristbandcb006302Facade.returnCredit(wristid);
+       int expenditure=wristbandcb006302Facade.returnExpense(wristid);
+        String lowcredit="Not enough credit to buy this item";
         
         RequestDispatcher rd;
         wristbandcb006302Facade.updateExpense(wristid, expense);
         try{
-            ticketcb006302Facade.addExtremeparkTicket(ticketid,wristid,gameType,ticketQty,ticket_date, ticketPrice);
-            rd = request.getRequestDispatcher("extremepark_tickets.jsp?loginstate=1");
-            rd.forward(request, response);
-            out.println("Transaction ticket was successful!");
+            if(reloaded_amount>expenditure){
+                ticketcb006302Facade.addExtremeparkTicket(ticketid,wristid,gameType,ticketQty,ticket_date, ticketPrice);
+                request.setAttribute("xtremesuccess", xtremesuccess);
+                rd = request.getRequestDispatcher("extremepark_tickets.jsp?loginstate=1");
+                rd.forward(request, response);
+                out.println("Transaction ticket was successful!");
+            
+            }
+            else{
+                request.setAttribute("lowcredit", lowcredit);
+                rd = request.getRequestDispatcher("eload.jsp?loginstate=1");
+                rd.forward(request, response);
+                out.println("Transaction successful");
+            }
+            
         }
         catch(Exception ex){
+            request.setAttribute("xtremefail", xtremefail);
             rd = request.getRequestDispatcher("ticket.jsp?loginstate=1");
             rd.forward(request, response);
             out.println(ex + "Try again");
@@ -75,22 +98,29 @@ public class ticketServlet extends HttpServlet {
         String ticketid=String.valueOf(randomID());
         String ticket_date = dtf.format(localDate);
         String wristID = String.valueOf(randomID());
+        String password = String.valueOf(randomID());
         int ticket_price = (Integer.parseInt(type1)*10)+(Integer.parseInt(type2)*6);
         int credit = Integer.parseInt(request.getParameter("credit"));
         int expense = 0;
         
-        RequestDispatcher rd;
+        request.setAttribute("wristID", wristID);
+        request.setAttribute("password", password);
         
+        RequestDispatcher rd;
+        userdetailsFacade.addUser(ticketid, wristID, password, password, password);
         try{
             ticketcb006302Facade.addticket(ticketid,wristID,type1,type2,ticket_date, ticket_price, wristID, credit, expense);
-            rd = request.getRequestDispatcher("account.jsp");
+            rd = request.getRequestDispatcher("account.jsp?purchasestate=1");
             rd.forward(request, response);
             out.println("Transaction ticket was successful!");
+            out.println("wristID "+wristID);
+            out.println("password "+password);
+            
         }
         catch(Exception ex){
-            rd = request.getRequestDispatcher("ticket.jsp");
+            rd = request.getRequestDispatcher("ticket.jsp?purchasefailed=1");
             rd.forward(request, response);
-            out.println(ex + "Try again");
+            out.println(ex + "Something went wrong! Try again");
         }
         
     }

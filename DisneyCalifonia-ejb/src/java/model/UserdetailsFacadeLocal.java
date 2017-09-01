@@ -32,4 +32,6 @@ public interface UserdetailsFacadeLocal {
     
     public void addUser(String id, String username, String email, String type, String password);
     public boolean isUserExist(String usr, String pwd);
+    public void removeusername(String id);
+    
 }
