@@ -34,4 +34,6 @@ public interface Bulletinboardcb006302FacadeLocal {
     
     public void removeEvent(String id);
     
+    public void editEvent(String id, String name, String time);
+    
 }

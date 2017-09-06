@@ -36,5 +36,6 @@ public interface Ticketcb006302FacadeLocal {
     
     public void addExtremeparkTicket(String ticketid,String wristID,String type1,String type2,String ticket_date, int ticket_price);
     
-    
+    public Number selectedSales(String date);
+    public Number totalSales();
 }

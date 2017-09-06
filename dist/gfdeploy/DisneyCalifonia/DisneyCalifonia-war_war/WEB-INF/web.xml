@@ -64,6 +64,14 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>com.src.servlets.NewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminsalesServlet</servlet-name>
+        <servlet-class>com.src.servlets.adminsalesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editEventServlet</servlet-name>
+        <servlet-class>com.src.servlets.editEventServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>accountServlet</servlet-name>
         <url-pattern>/accountServlet</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminsalesServlet</servlet-name>
+        <url-pattern>/adminsalesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editEventServlet</servlet-name>
+        <url-pattern>/editEventServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

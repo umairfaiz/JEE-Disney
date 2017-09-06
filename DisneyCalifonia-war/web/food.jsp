@@ -117,8 +117,8 @@
                   </c:if>
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate !=null}" >   
-                  <li class="hidden-xs"><a href="extremepark_tickets.jsp">Xtreme tickets</a></li>
-                  <li class="hidden-xs"><a href="checkout.jsp">Checkout</a></li>
+                 <li class="hidden-xs"><a href="extremepark_tickets.jsp?loginstate=1">Xtreme tickets</a></li>
+                  <li class="hidden-xs"><a href="checkout.jsp?loginstate=1">Checkout</a></li>
                   <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
                   <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
                   </c:if>
@@ -196,7 +196,7 @@
                 <li>
                     <form class="comments-form contact-form" action="foodServlet" method="POST">
                         <figure>
-                    <a class="aa-product-img" href="#"><img src="img/women/girl-1.png" alt="polo shirt img"></a>
+                    <a class="aa-product-img" href="#"><img src="img/sub.png" alt="polo shirt img"></a>
                     <a class="aa-add-card-btn"><span class="fa fa-cutlery"></span><button type="submit" style="background: black; border: none">Order</button></a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#">Submarine</a></h4>
@@ -212,7 +212,7 @@
                 <li>
                     <form class="comments-form contact-form" action="foodServlet" method="POST">
                         <figure>
-                    <a class="aa-product-img" href="#"><img src="img/women/girl-1.png" alt="polo shirt img"></a>
+                    <a class="aa-product-img" href="#"><img src="img/bucket.png" alt="polo shirt img"></a>
                     <a class="aa-add-card-btn"><span class="fa fa-cutlery"></span><button type="submit" style="background: black; border: none">Order</button></a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#">Chik Bucket</a></h4>
@@ -229,7 +229,7 @@
                 <li>
                     <form class="comments-form contact-form" action="foodServlet" method="POST">
                         <figure>
-                    <a class="aa-product-img" href="#"><img src="img/women/girl-1.png" alt="polo shirt img"></a>
+                    <a class="aa-product-img" href="#"><img src="img/coke.png" alt="polo shirt img"></a>
                     <a class="aa-add-card-btn"><span class="fa fa-cutlery"></span><button type="submit" style="background: black; border: none">Order</button></a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#">Coka-cola</a></h4>

@@ -117,8 +117,8 @@
                   </c:if>
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate !=null}" >   
-                  <li class="hidden-xs"><a href="extremepark_tickets.jsp">Xtreme tickets</a></li>
-                  <li class="hidden-xs"><a href="checkout.jsp">Checkout</a></li>
+                  <li class="hidden-xs"><a href="extremepark_tickets.jsp?loginstate=1">Xtreme tickets</a></li>
+                  <li class="hidden-xs"><a href="checkout.jsp?loginstate=1">Checkout</a></li>
                   <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
                   <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
                   </c:if>

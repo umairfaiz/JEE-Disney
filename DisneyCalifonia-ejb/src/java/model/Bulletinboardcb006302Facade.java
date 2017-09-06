@@ -43,5 +43,13 @@ public class Bulletinboardcb006302Facade extends AbstractFacade<Bulletinboardcb0
        Bulletinboardcb006302 rem_board = em.find(Bulletinboardcb006302.class, id);
        em.remove(rem_board);
     }
+
+    @Override
+    public void editEvent(String id, String name, String time) {
+        Bulletinboardcb006302 edit_board = em.find(Bulletinboardcb006302.class, id);
+        edit_board.setEventName(name);
+        edit_board.setEventTime(time);
+        em.merge(edit_board);
+    }
     
 }

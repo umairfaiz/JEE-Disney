@@ -11,6 +11,7 @@ import java.io.IOException;
 import static java.lang.System.out;
 import java.util.Random;
 import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
@@ -38,7 +39,7 @@ public class photoServlet extends HttpServlet {
 
    
 
-    
+    @RolesAllowed({"AdminRole"})
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

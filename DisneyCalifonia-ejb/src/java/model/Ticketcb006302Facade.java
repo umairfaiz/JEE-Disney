@@ -8,6 +8,8 @@ package model;
 import entities.Ticketcb006302;
 import entities.Wristbandcb006302;
 import entities.Userdetails;
+import static java.lang.System.out;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -71,9 +73,7 @@ public class Ticketcb006302Facade extends AbstractFacade<Ticketcb006302> impleme
     public void addExtremeparkTicket(String ticketid, String wristID, String type1, String type2, String ticket_date, int ticket_price) {
         Ticketcb006302 ticket = new Ticketcb006302();
         Wristbandcb006302 wristband = new Wristbandcb006302();
-        
-        
-        
+
         ticket.setTicketId(ticketid);
         //ticket.setWristId(new Wristbandcb006302(wristband.getWristId()));
         ticket.setWristId(new Wristbandcb006302(wristID));
@@ -85,7 +85,19 @@ public class Ticketcb006302Facade extends AbstractFacade<Ticketcb006302> impleme
         em.persist(ticket);
     }
 
-   
+    @Override
+    public Number selectedSales(String date) {
+        Query query=em.createQuery("SELECT SUM (t.ticketPrice) FROM Ticketcb006302 t WHERE t.ticketDate = :ticketDate").setParameter("ticketDate", date);
+        Number sales=(Number)query.getSingleResult();
+        return sales;
+    }
+
+    @Override
+    public Number totalSales() {
+        Query query=em.createQuery("SELECT SUM (t.ticketPrice) FROM Ticketcb006302 t");
+        Number totsales=(Number)query.getSingleResult();
+        return totsales;
+    }
     
     
     

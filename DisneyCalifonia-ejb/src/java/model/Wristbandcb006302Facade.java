@@ -34,8 +34,11 @@ public class Wristbandcb006302Facade extends AbstractFacade<Wristbandcb006302> i
 
     @Override
     public void updateCredit(String wristid, int amount) {
+        Wristbandcb006302 crd = em.find(Wristbandcb006302.class, wristid);
+        int old_credit = crd.getCreditLimit();
+        int credit=old_credit+amount;
        //Query query = em.createQuery("UPDATE Wristbandcb006302 u SET u.creditLimit=u WHERE u.wristId = :w < :u");
-       Query query = em.createQuery("UPDATE Wristbandcb006302 u SET u.creditLimit = :u WHERE u.wristId = :w").setParameter("u", amount).setParameter("w", wristid);
+       Query query = em.createQuery("UPDATE Wristbandcb006302 u SET u.creditLimit = :u WHERE u.wristId = :w").setParameter("u", credit).setParameter("w", wristid);
        //int updateCredit = query.executeUpdate();
        query.executeUpdate();
     }

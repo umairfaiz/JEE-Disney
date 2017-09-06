@@ -108,11 +108,9 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html">My Account</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li><a href="photos.jsp">Add photos</a></li>
+                    <li><a href="index.jsp" >logout</a></li>
+                    <li><a href="bulletinBoard.jsp" >Bulletin</a></li>
                 </ul>
               </div>
             </div>
@@ -188,6 +186,7 @@
                     </div>
                     <div class="aa-prod-view-bottom">
                         <button class="aa-add-to-cart-btn" href>Add event</button>
+                        <a class="aa-add-to-cart-btn" href="editbulletinBoard.jsp">Edit event</a>
                       <a class="aa-add-to-cart-btn" href="adminIndex.jsp">Go back</a>
                     </div>
                     </form>    
@@ -227,7 +226,7 @@
                       <tr>
                     <form action="bulletinServlet" method="GET">
                         <td><button class="remove" type="submit" name="remove_event"><fa class="fa fa-close"></fa></button></td>
-                        <td><a href="#"><img src="img/${i.EVENT_ID}.jpg" ></a></td>
+                        <td><a href="#"><img src="img/bulletin/${i.EVENT_ID}.jpg" alt="${i.EVENT_ID}"></a></td>
                         <input type="hidden" name="event_id" value="${i.EVENT_ID}" />
                         <td><a class="aa-cart-title" href="#">${i.EVENT_NAME}</a></td>
                         <td>${i.EVENT_TIME}</td>   

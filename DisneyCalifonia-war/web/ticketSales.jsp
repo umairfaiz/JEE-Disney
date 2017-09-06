@@ -147,9 +147,7 @@
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
-                
-                  
-                  
+                <span>${requestScope.salesfail}</span>
               </div>
               <!-- / search box -->             
             </div>
@@ -179,11 +177,17 @@
                 <div class="col-md-7 col-sm-7 col-xs-12">
                   <div class="aa-product-view-content">
                     <h3>Amusement park ticket sales</h3>
-                    <form method="POST" action="">
+                    <form method="POST" action="adminsalesServlet">
                     <div class="aa-prod-view-size">
-                        Start date : <input type="text" name="start_date" value="" /><br/><br/>
-                      End date :  <input type="text" name="end_date" value="" /><br/><br/>
-                      Total sales : $<input type="text" name="sales" value="" />
+                      
+                        Date : <input type="text" name="checkDate" placeholder="yyyy/mm/dd" value="" /><br/><br/>
+                      
+                        <c:set var="salesstate" scope="request" value="${param.salesstate}"/>
+                        <c:if test="${salesstate !=null}" > 
+                            Sales on selected date :  $<input type="text" name="saleondate" value="${requestScope.sales}" readonly="readonly"/><br/><br/>
+                            Total sales : $<input type="text" name="totsales" value="${requestScope.totsales}" readonly="readonly" />
+                        </c:if>   
+                      
                     </div>
                     <div class="aa-prod-view-bottom">
                         <button class="aa-add-to-cart-btn" href>Get sales</button>

@@ -108,10 +108,10 @@
                                 <div class="aa-header-top-right">
                                     <ul class="aa-head-top-nav-right">
 
-                                        <li class="hidden-xs"><a href="extremepark_tickets.jsp">Xtreme tickets</a></li>
-                                        <li class="hidden-xs"><a href="checkout.jsp">Checkout</a></li>
-                                        <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
-                                        <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
+                                        <li class="hidden-xs"><a href="extremepark_tickets.jsp?loginstate=1">Xtreme tickets</a></li>
+                  <li class="hidden-xs"><a href="checkout.jsp?loginstate=1">Checkout</a></li>
+                  <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
+                  <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
 
                                     </ul>
                                 </div>

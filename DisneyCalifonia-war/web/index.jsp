@@ -109,13 +109,14 @@
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate ==null}">    
                       <li><a href="ticket.jsp">Tickets</a></li>
+                      <li><a href="photos.jsp" >Add photos</a></li>
                       <li><a href="account.jsp" >Customer Login</a></li>
                       <li><a href="adminServlet" >Admin Login</a></li>
                   </c:if>
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate !=null}" >   
-                  <li class="hidden-xs"><a href="extremepark_tickets.jsp">Xtreme tickets</a></li>
-                  <li class="hidden-xs"><a href="checkout.jsp">Checkout</a></li>
+                  <li class="hidden-xs"><a href="extremepark_tickets.jsp?loginstate=1">Xtreme tickets</a></li>
+                  <li class="hidden-xs"><a href="checkout.jsp?loginstate=1">Checkout</a></li>
                   <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
                   <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
                   </c:if>
@@ -206,61 +207,9 @@
               <div class="seq-model">
                 <img data-seq src="img/slider/1.jpg" alt="Men slide img" />
               </div>
-              <div class="seq-title">
-               <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Men Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              <div class="seq-title">             
               </div>
-            </li>
-            <!-- single slide item -->
-            <li>
-              <div class="seq-model">
-                <img data-seq src="img/slider/2.jpg" alt="Wristwatch slide img" />
-              </div>
-              <div class="seq-title">
-                <span data-seq>Save Up to 40% Off</span>                
-                <h2 data-seq>Wristwatch Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>
-            <!-- single slide item -->
-            <li>
-              <div class="seq-model">
-                <img data-seq src="img/slider/3.jpg" alt="Women Jeans slide img" />
-              </div>
-              <div class="seq-title">
-                <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Jeans Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>
-            <!-- single slide item -->           
-            <li>
-              <div class="seq-model">
-                <img data-seq src="img/slider/4.jpg" alt="Shoes slide img" />
-              </div>
-              <div class="seq-title">
-                <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Exclusive Shoes</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>
-            <!-- single slide item -->  
-             <li>
-              <div class="seq-model">
-                <img data-seq src="img/slider/5.jpg" alt="Male Female slide img" />
-              </div>
-              <div class="seq-title">
-                <span data-seq>Save Up to 50% Off</span>                
-                <h2 data-seq>Best Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>                   
+            </li>             
           </ul>
         <!-- slider navigation btn -->
 <!--
@@ -288,7 +237,7 @@
                   <div class="aa-promo-banner">                    
                     <img src="img/E1.jpg" alt="img">                    
                     <div class="aa-prom-content">
-                      <h4><a href="ticket.jsp">Ticket Purchase</a></h4>                      
+                      <h4><a href="ticket.jsp?loginstate=1">Ticket Purchase</a></h4>                      
                     </div>
                   </div>
                 </div>
@@ -322,9 +271,9 @@
                   </div>
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
-                      <img src="img/promo-banner-5.jpg" alt="img">                      
+                      <img src="img/E5.jpg" alt="img">                      
                       <div class="aa-prom-content">
-                        <h4><a href="food.jsp">Food</a></h4>                        
+                        <h4><a href="food.jsp?loginstate=1">Food</a></h4>                        
                       </div>
                     </div>
                   </div>
@@ -351,12 +300,12 @@
                    </sql:query>
                       
             <div class="row">
-                     <c:forEach items="${bulletinList.rows}" var="i">
+                <c:forEach items="${bulletinList.rows}" var="i">
                     <div class="col-md-4 col-sm-4">
                 <div class="aa-latest-blog-single">
                     
                   <figure class="aa-blog-img">                    
-                    <a href="#"><img src="img/${i.EVENT_ID}.jpg" alt="img"></a>  
+                    <a href="#"><img src="img/bulletin/${i.EVENT_ID}.jpg" alt="img"></a>  
                       <figcaption class="aa-blog-img-caption">
                       <a href="#"><i class="fa fa-clock-o"></i>Staring time ${i.EVENT_TIME}</a>
                     </figcaption>                          
@@ -496,28 +445,7 @@
   <!-- / footer -->
 
   <!-- Login Modal -->  
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">                      
-        <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="accountServlet" method="POST">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" name="username" placeholder="Username or email">
-            <label for="">Password<span>*</span></label>
-            <input type="password" name="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
-            <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
-            </div>
-          </form>
-        </div>                        
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>    
+  
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

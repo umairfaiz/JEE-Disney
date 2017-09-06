@@ -116,8 +116,8 @@
                   </c:if>
                   <c:set var="loginstate" scope="request" value="${param.loginstate}"/>
                   <c:if test="${loginstate !=null}" >   
-                  <li class="hidden-xs"><a href="extremepark_tickets.jsp">Xtreme tickets</a></li>
-                  <li class="hidden-xs"><a href="checkout.jsp">Checkout</a></li>
+                  <li class="hidden-xs"><a href="extremepark_tickets.jsp?loginstate=1">Xtreme tickets</a></li>
+                  <li class="hidden-xs"><a href="checkout.jsp?loginstate=1">Checkout</a></li>
                   <li class="hidden-xs"><a href="logoutServlet">Logout</a></li>
                   <li><a href="adminServlet" data-toggle="modal" data-target="#login-modal">Admin Login</a></li>
                   </c:if>
@@ -189,7 +189,7 @@
                   <div class="aa-product-view-slider">                                
                     <div id="demo-1" class="simpleLens-gallery-container">
                       <div class="simpleLens-container">
-                        <div class="simpleLens-big-image-container"><a  class="simpleLens-lens-image"><img src="img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image"></a></div>
+                        <div class="simpleLens-big-image-container"><a  class="simpleLens-lens-image"><img src="img/t1.png" class="simpleLens-big-image"></a></div>
                       </div>
                     </div>
                   </div>
