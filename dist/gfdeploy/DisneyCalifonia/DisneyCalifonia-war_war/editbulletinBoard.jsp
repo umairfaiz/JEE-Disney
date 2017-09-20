@@ -223,7 +223,7 @@
                       <tr>
                     <form action="bulletinServlet" method="GET">
                         <td><button class="remove" type="submit" name="remove_event"><fa class="fa fa-close"></fa></button></td>
-                        <td><a href="#"><img src="img/${i.EVENT_ID}.jpg" ></a></td>
+                        <td><a href="#"><img src="img/bulletin/${i.EVENT_ID}.jpg" ></a></td>
                         <input type="hidden" name="event_id" value="${i.EVENT_ID}" />
                         <td><a class="aa-cart-title" href="#">${i.EVENT_NAME}</a></td>
                         <td>${i.EVENT_TIME}</td>   
